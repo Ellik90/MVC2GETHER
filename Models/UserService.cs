@@ -1,14 +1,16 @@
 namespace Models;
 using Data;
 
-public class UserService
+public class UserService 
 {
+
     UserDB _userDB;
-    // UserDB userdb = new();
     public UserService(UserDB userDB)
     {
         _userDB = userDB;
     }
+    public UserService() { }
+
     public bool UpdateUserEmail(User user, string email)
     {
         bool rows = false;
@@ -20,7 +22,7 @@ public class UserService
     }
 
     public bool UpdateUserPassword(User user, string password)
-    {
+     {
         bool rows = false;
         if (_userDB.UpdateUserPassword(user, password) < 1)
         {
@@ -71,12 +73,12 @@ public class UserService
         }
 
     }
-
+    
     public bool CheckUserEmailExists(string email)
     {
         bool rows = false;
 
-        if (_userDB.UserEmailExists(email) == true)
+        if (_userDB.UserEmailExists(email) == true) 
         {
             rows = true;
         }
@@ -102,4 +104,5 @@ public class UserService
         }
         return rows;
     }
+
 }

@@ -2,9 +2,8 @@ using Dapper;
 using MySqlConnector;
 using Models;
 namespace Data;
-public class UserDB
+public class UserDB 
 {
-
     public int CreateUser(User user)
     {
         int rows = 0;
@@ -27,7 +26,7 @@ public class UserDB
         }
         return rows;
     }
-
+    
     public bool UserEmailExists(string email)
     {
         bool rows = true;
@@ -109,8 +108,20 @@ public class UserDB
             {
                 return null;
             }
-            return user; 
+            return user;
         }
-
     }
+
+
+    // public List<User> GetAllUsers()
+    // {
+    //     List<User> users = new();
+    //     using (MySqlConnection connection = new MySqlConnection($"Server=localhost;Database=2gether;Uid=root;Pwd=;"))
+    //     {
+    //         string? query = "SELECT id AS 'id', personal_number AS 'personalNumber',first_name AS 'name', email AS 'email', pass_word AS 'password', landscape.name AS 'landscape' " +
+    //                         "FROM user_account INNER JOIN landscape ON user_account.land_scape_id = landscape.id;";
+    //         users = connection.Query<User>(query).ToList();
+    //         return users;
+    //     }
+    // }
 }

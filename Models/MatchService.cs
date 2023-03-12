@@ -43,6 +43,29 @@ public class MatchService
         return myMatches;
     }
 
+    // public bool LandscapeMatch(User user)
+    // {
+    //     int rows = 0;
+    //     rows = _matchHandeler.LandscapeMatch(user);
+    //     if (rows > 0)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
+
+    // public void SetTheYesAndNO(User user, string word)
+    // {
+    //     List<User> matches = _matchHandeler.GetUsersByLandscapeAndAge(user);
+    //     foreach (User item in matches)
+    //     {
+    //         _matchHandeler.SayYesOrNoToMatch(user, item.Id);
+    //     }
+    // }
+
     public void InsertInterestsChoise(User user, List<int> interests)
     {
         foreach (int item in interests)

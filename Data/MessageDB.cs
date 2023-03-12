@@ -2,7 +2,7 @@ using Dapper;
 using MySqlConnector;
 using Models;
 namespace Data;
-public class MessageDB
+public class MessageDB 
 {
     public int CreateMessage(Message message)
     {

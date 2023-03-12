@@ -2,12 +2,12 @@ namespace Models;
 using Data;
 public class MessageService 
 {
-    MessageDB _messageDb;
+    MessageDB _messageDB;
     List<Message> allMessages = new();
     Message message = new();
     public MessageService(MessageDB messageDB)
     {
-        _messageDb = messageDB;
+        _messageDB = messageDB;
     }
     public MessageService() { }
 
@@ -19,12 +19,12 @@ public class MessageService
     
     public void MakeMessage(Message message)
     {
-        _messageDb.CreateMessage(message);
+        _messageDB.CreateMessage(message);
     }
 
     public List<Message> GetOneMessageConversation(User user, int id2)
     {
-        List<Message> messages = _messageDb.GetMyMessages(user, id2);
+        List<Message> messages = _messageDB.GetMyMessages(user, id2);
         return messages;
     }
 
