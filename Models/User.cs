@@ -1,5 +1,5 @@
 using System.ComponentModel;
-namespace Models;
+namespace MVC2GETHER.Models;
 
 
 public class User

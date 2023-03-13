@@ -1,4 +1,4 @@
-namespace Models;
+namespace MVC2GETHER.Models;
 public class Message
 {
     int Id { get; set; }

@@ -1,13 +1,11 @@
-namespace Models;
+namespace MVC2GETHER.Models;
 using Data;
 public class LoginService 
 {
-    User _user;
     UserDB _userDB;
 
-    public LoginService(User user, UserDB userDB)
+    public LoginService(UserDB userDB)
     {
-        _user = user;
         _userDB = userDB;
     }
 
@@ -27,8 +25,15 @@ public class LoginService
 
     }
 
-    public int UserLoginIsValid(User user)
+    public int UserLoginIsValid(string email, string password)
     {
-        return _userDB.UserLogInExists(user);
+        try
+        {
+        return _userDB.UserLogInExists(email, password);
+        }
+        catch(Exception e)
+        {
+            return 0;
+        }
     }
 }

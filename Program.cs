@@ -2,6 +2,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
+
+builder.Services.AddScoped<MVC2GETHER.Models.LoginService>();
+builder.Services.AddScoped<MVC2GETHER.Models.UserService>();
+builder.Services.AddScoped<MVC2GETHER.Data.UserDB>();
 
 var app = builder.Build();
 
@@ -17,7 +22,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

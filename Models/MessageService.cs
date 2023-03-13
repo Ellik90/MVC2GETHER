@@ -1,4 +1,4 @@
-namespace Models;
+namespace MVC2GETHER.Models;
 using Data;
 public class MessageService 
 {

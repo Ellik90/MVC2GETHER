@@ -1,7 +1,7 @@
 using Dapper;
 using MySqlConnector;
-using Models;
-namespace Data;
+using MVC2GETHER.Models;
+namespace MVC2GETHER.Data;
 public class MatchDB 
 {
     public int CheckIfMatchesExists(User user, int otherUserId)

@@ -1,7 +1,7 @@
 using Dapper;
 using MySqlConnector;
-using Models;
-namespace Data;
+using MVC2GETHER.Models;
+namespace MVC2GETHER.Data;
 public class UserDB 
 {
     public int CreateUser(User user)
@@ -49,13 +49,13 @@ public class UserDB
         return rows;
     }
 
-    public int UserLogInExists(User user)
+    public int UserLogInExists(string email, string password)
     {
         int id = 0;
         using (MySqlConnection connection = new MySqlConnection($"Server=localhost;Database=2gether;Uid=root;Pwd=;"))
         {
             string? query = "SELECT id AS 'Id' FROM user_account WHERE email = @email AND pass_word = @password;";
-            id = connection.ExecuteScalar<int>(query, new { @email = user.Email, @password = user.PassWord });
+            id = connection.ExecuteScalar<int>(query, new { @email = email, @password = password });
             return id;
         }
     }
@@ -98,7 +98,7 @@ public class UserDB
         User user = new();
         using (MySqlConnection connection = new MySqlConnection($"Server=localhost;Database=2gether;Uid=root;Pwd=;"))
         {
-            string query = " SELECT u.id AS 'id', u.personal_number AS 'personalNumber', u.first_name AS 'name', u.email AS 'email', u.pass_word AS 'password', l.name AS 'landscape'" +
+            string query = " SELECT u.id AS 'id', u.personal_number AS 'personalNumber', u.first_name AS 'name', u.last_name AS 'lastName', u.email AS 'email', u.age AS 'age', u.gender AS 'gender', u.pass_word AS 'password', l.name AS 'landscape'" +
                            " FROM user_account u INNER JOIN landscape l ON u.land_scape_id = l.id WHERE u.id = @id;";
             try
             {

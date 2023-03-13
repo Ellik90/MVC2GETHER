@@ -1,0 +1,17 @@
+@model MVC2GETHER.Models.User;
+
+<h1>Välkommen @Model.Name</h1>
+
+<h2>Om mig</h2>
+<li>Namn: @Model.Name</li>
+@if (@Model.LastName != null)
+{
+    <li>Efternamn: @Model.LastName</li>
+}
+<li>Ålder: @Model.Age</li>
+<li>Identitet: @Model.Gender</li>
+<li>Email: @Model.Email</li>
+
+
+
+
