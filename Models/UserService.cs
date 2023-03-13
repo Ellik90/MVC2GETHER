@@ -45,18 +45,11 @@ public class UserService
         }
     }
 
-    public bool CreateUser(User user)
+    public int CreateUser(User user)
     {
-        int rows = 0;
-        rows = _userDB.CreateUser(user);
-        if (rows > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        int id = 0;
+        id = _userDB.CreateUser(user);
+        return id;
     }
 
 

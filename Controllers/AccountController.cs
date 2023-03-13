@@ -31,13 +31,13 @@ public class AccountController : Controller
         try
         {
             int userId = _loginService.UserLoginIsValid(email, passWord);
-            if(userId == 0)
+            if (userId == 0)
             {
                 return RedirectToAction("LogIn", "Account");
             }
             HttpContext.Session.SetInt32("UserId", userId);
             User user = _userService.GetUser(userId);
-        return RedirectToAction("MyProfilePage", "Account", user);
+            return RedirectToAction("MyProfilePage", "Account", user);
         }
         catch (InvalidOperationException)
         {
@@ -49,6 +49,21 @@ public class AccountController : Controller
     {
         return View(user);
     }
+
+    public IActionResult SignUp()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult SignUp(User user)
+    {
+        int id = _userService.CreateUser(user);
+        user = _userService.GetUser(id);
+        return RedirectToAction("myProfilePage", user);
+    }
+
+
 
 }
 

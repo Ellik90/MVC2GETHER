@@ -6,14 +6,14 @@ public class UserDB
 {
     public int CreateUser(User user)
     {
-        int rows = 0;
+        int id = 0;
         using (MySqlConnection connection = new MySqlConnection($"Server=localhost;Database=2gether;Uid=root;Pwd=;"))
         {
             string query = "INSERT INTO user_account(first_name, last_name, gender, age, personal_number, email, pass_word,land_scape_id)" +
-            "VALUES(@Name,@LastName,@Gender,@Age,@PersonalNumber,@Email,@PassWord,@landScapeId);";
-            rows = connection.ExecuteScalar<int>(query, param: user);
+            "VALUES(@Name,@LastName,@Gender,@Age,@PersonalNumber,@Email,@PassWord,@landScapeId); SELECT LAST_INSERT_ID(); ";
+            id = connection.QuerySingle<int>(query, param: user);
         }
-        return rows;
+        return id;
     }
 
     public int DeleteUser(User user)
