@@ -63,6 +63,18 @@ public class AccountController : Controller
         return RedirectToAction("myProfilePage", user);
     }
 
+    public IActionResult LogOut()
+    {
+       return View();
+    }
+
+    [HttpPost]
+    public IActionResult LogOut(User user)
+    {
+        HttpContext.Session.Clear();
+         return RedirectToAction("LogIn", "Account");
+    }
+
 
 
 }

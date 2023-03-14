@@ -12,6 +12,13 @@
 <li>Identitet: @Model.Gender</li>
 <li>Email: @Model.Email</li>
 
+<div id="logout-container">
+    <form id="logout-form" method="post" action="@Url.Action("LogOut", "Account")">
+        <input type="submit" id="logout-button" value="Logga ut" />
+    </form>
+</div>
+
+
 
 
 

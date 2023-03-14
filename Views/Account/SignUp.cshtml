@@ -1,8 +1,37 @@
 @model MVC2GETHER.Models.User;
-<form id=Login-form method="post" action="LogIn">
-    
+<form id=Login-form method="post" action="SignUp">
+    <h4>Namn</h4> <input type="text" name="Name" />
+    <h4>Efternamn</h4> <input type="text" name="LastName" />
+    <h4>Ålder</h4> <input type="int" name="Age" />
+    <h4>Identitet: Mr || Miss || Binary </h4> <input type="text" name="Gender" />
+    <h4>Vart är du bosatt</h4>
+    <select name="LandscapeId">
+        <option value="1">Norrbotten</option>
+        <option value="2">Västerbotten</option>
+        <option value="3">Jämtland</option>
+        <option value="4">Västernorrland</option>
+        <option value="5">Gävleborg</option>
+        <option value="6">Dalarna</option>
+        <option value="7">Uppsala</option>
+        <option value="8">Västmanland</option>
+        <option value="9">Värmland</option>
+        <option value="10">Stockholm</option>
+        <option value="11">Södermanland</option>
+        <option value="12">Örebro</option>
+        <option value="13">Östergötland</option>
+        <option value="14">Västra Götaland</option>
+        <option value="15">Jönköping</option>
+        <option value="16">Kalmar</option>
+        <option value="17">Kronoberg</option>
+        <option value="18">Gotland</option>
+        <option value="19">Halland</option>
+        <option value="20">Blekinge</option>
+        <option value="21">Skåne</option>
+    </select>
+
+    <h4>Person nummer</h4> <input type="text" name="PersonalNumber" />
     <h4>Email</h4> <input type="email" name="Email" />
-    <h4>Password</h4> <input type="text" name="PassWord" />
-    <input type="submit" id=login-button value="Logga in" />
-    
- </form>
+    <h4>Password</h4> <input type="password" name="PassWord" />
+    <input type="submit" id="login-button" value="Bekräfta" />
+
+</form>
