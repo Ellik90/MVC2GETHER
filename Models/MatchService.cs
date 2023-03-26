@@ -36,10 +36,10 @@ public class MatchService
         }
     }
 
-    public List<User> GetMatches(User user)
+    public List<User> GetMatches(int userId)
     {
         List<User> myMatches = new();
-        myMatches = _matchDB.GetMatches(user);
+        myMatches = _matchDB.GetMatches(userId);
         return myMatches;
     }
 

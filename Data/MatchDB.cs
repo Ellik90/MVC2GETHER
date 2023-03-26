@@ -16,7 +16,7 @@ public class MatchDB
         }
     }
 
-    public List<User> GetMatches(User user)
+    public List<User> GetMatches(int userId)
     {
         List<User> matches = new();
         using (MySqlConnection connection = new MySqlConnection($"Server=localhost;Database=2gether;Uid=root;Pwd=;"))
@@ -25,7 +25,8 @@ public class MatchDB
                             "FROM matches m INNER JOIN user_account u1 " +
                             "ON m.one_user_account_id = u1.id INNER JOIN user_account u2 " +
                             "ON m.two_user_account_id = u2.id WHERE u1.id = @Id;";
-            matches = connection.Query<User>(query, param: user).ToList();
+            matches = connection.Query<User>(query, param: new { Id = userId }).ToList();
+            // matches = connection.Query<User>(query, param: user).ToList();
         }
         return matches;
     }

@@ -7,6 +7,8 @@ builder.Services.AddSession();
 builder.Services.AddScoped<MVC2GETHER.Models.LoginService>();
 builder.Services.AddScoped<MVC2GETHER.Models.UserService>();
 builder.Services.AddScoped<MVC2GETHER.Data.UserDB>();
+builder.Services.AddScoped<MVC2GETHER.Data.MatchDB>();
+builder.Services.AddScoped<MVC2GETHER.Models.MatchService>();
 
 var app = builder.Build();
 

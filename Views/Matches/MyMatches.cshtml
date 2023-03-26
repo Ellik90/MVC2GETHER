@@ -1,0 +1,21 @@
+@model List<MVC2GETHER.Models.User>
+   
+
+<h2>My Matches</h2>
+
+@if (Model.Count == 0)
+{
+    <p>You don't have any matches yet.</p>
+}
+else
+{
+    <ul>
+        @foreach (var match in @Model)
+        {
+            <li>@match.Name</li>
+        }
+    </ul>
+}
+
+
+

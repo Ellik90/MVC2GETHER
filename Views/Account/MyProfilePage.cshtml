@@ -12,6 +12,15 @@
 <li>Identitet: @Model.Gender</li>
 <li>Email: @Model.Email</li>
 
+<a asp-controller="Matches" asp-action="MyMatches">My matches</a>
+
+<div id="logout-container">
+    <form id="mymatches-form" method="post" action="@Url.Action("MyMatches", "Account")">
+        <input type="submit" id="mymatches-button" value="My matches" />
+    </form>
+</div>
+
+
 <div id="logout-container">
     <form id="logout-form" method="post" action="@Url.Action("LogOut", "Account")">
         <input type="submit" id="logout-button" value="Logga ut" />
